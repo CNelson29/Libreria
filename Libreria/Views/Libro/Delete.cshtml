@@ -1,0 +1,48 @@
+﻿@model Libreria.Models.libros
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Deseas eliminar?</h3>
+<div>
+    <h4>libros</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre_libro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre_libro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre_categoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre_categoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
