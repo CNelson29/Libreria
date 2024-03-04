@@ -1,0 +1,52 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="~/Content/css/login.css" rel="stylesheet" />
+</head>
+<body>
+                    <div class="sidenav">
+                        <div class="login-main-text">
+                            <h2>BIBLIOTECA<br> Login </h2>
+                            <p>Sistema de gestion de biblioteca.</p>
+                        </div>
+                    </div>
+                    <div class="main">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="login-form">
+                                <form action="@Url.Action("login","Acceso")" method="post">
+                                    <div class="form-group">
+                                        <label>Correo</label>
+                                        <input type="text" name="Correo" class="form-control" placeholder="Correo">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Contraseña</label>
+                                        <input type="password" name="Contraseña" class="form-control" placeholder="Contraseña">
+                                    </div>
+                                    @if (ViewData["mensaje"] != null)
+                                    {
+                                        <div class="alert alert-dark" role="alert">
+                                            @ViewData["mensaje"]
+                                        </div>
+                                    }
+
+                                    <button type="submit" class="btn btn-black">Iniciar sesion</button>
+                                </form>
+                            </div>
+                            <div class="mt-4">
+                                <div class="d-flex justify-content-center links">
+                                    no tienes una cuenta? <a href="@Url.Action("registro","Acceso")" class="ml-2">Registrate</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+                    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</body>
+</html>

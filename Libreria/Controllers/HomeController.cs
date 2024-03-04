@@ -1,11 +1,15 @@
-﻿using System;
+﻿using Libreria.Models;
+using Libreria.Permisos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace Libreria.Controllers
 {
+    [ValidarSesion]
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -25,6 +29,11 @@ namespace Libreria.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        public ActionResult CerrarSesion()
+        {
+            Session["Usuario"] = null;
+            return RedirectToAction("login", "Acceso");
         }
     }
 }
